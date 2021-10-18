@@ -13,5 +13,4 @@ class User {
     };
 };
 
-bob = new User ("bob", 17);
-bob.checkAge();
+module.exports = {User};
