@@ -13,6 +13,19 @@ new class DockingStation {
     };
 
     chargeScooter(scooter) {
-        setTimeout
+        setTimeout(function () {
+            this.availableScooters.push(scooter);
+            console.log("Scooter Charged");
+        }, 2000);
+    };
+};
+
+
+new class Scooter {
+    constructor(scooterId, chargeLevel, range) {
+        this.scooterId = scooterId;
+        this.chargeLevel = chargeLevel;
+        this.range = range;
+        this.rideDistance = 0;
     };
 };
