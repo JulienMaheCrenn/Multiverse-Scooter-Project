@@ -5,7 +5,7 @@ class DockingStation {
         this.name = name;
         this.availableScooters = availableScooters;
         this.faultyScooters = [];
-        this.constructor.dockingStations.push(this);
+        this.constructor.dockingStations.push(this.name);
     };
 
     markAsFaulty(scooter) {
@@ -14,6 +14,7 @@ class DockingStation {
 
     chargeScooter(scooter) {
         setTimeout(function () {
+            scooter.chargeLevel = 100;
             this.availableScooters.push(scooter);
             console.log("Scooter Charged");
         }, 2000);

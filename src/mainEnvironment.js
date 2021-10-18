@@ -12,6 +12,10 @@ hp3 = new Scooter ("HP3", 74);
 
 //Defining the hydepark instance of DockingStation.
 
-hydePark = new DockingStation("Hyde Park",[hp1,hp2,hp3]);
+hydePark = new DockingStation("Hyde Park",[hp1,hp3]);
 
+console.log(hydePark.availableScooters);
 
+hydePark.chargeScooter(hp2);
+
+console.log(hydePark.availableScooters);
