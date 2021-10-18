@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # Json files
-.json
+package.json
