@@ -6,16 +6,33 @@ const {User} = require("./user.js");
 
 //Defining a few scooter instances.
 
-hp1 = new Scooter ("HP1", 100);
-hp2 = new Scooter ("HP2", 24);
-hp3 = new Scooter ("HP3", 74);
+let hp1 = new Scooter ("HP1", 100);
+let hp2 = new Scooter ("HP2", 24);
+let hp3 = new Scooter ("HP3", 74);
 
 //Defining the hydepark instance of DockingStation.
 
-hydePark = new DockingStation("Hyde Park",[hp1,hp3]);
+let hydePark = new DockingStation("Hyde Park");
+
+//Adding hp1 to hydePark instance.
+
+hydePark.availableScooters.push(hp1);
 
 console.log(hydePark.availableScooters);
 
-hydePark.chargeScooter(hp2);
+
+hydePark.undockScooter(hp1);
 
 console.log(hydePark.availableScooters);
+
+
+
+
+
+
+
+
+
+
+
+
