@@ -58,10 +58,9 @@ describe("Testing the Scooter class.", () => {
 describe("Testing the DockingStation class.", () => {
 
     beforeAll(() => {
-        /*jest.useFakeTimers();*/
         hp1 = new Scooter("HP1", 45);
         hydePark = new DockingStation ("Hyde Park", [hp1]);
-        /*hydePark.chargeScooter(hp1)*/
+      
     });
 
     test("Testing that hydePark is an instance of DockingStation.", () => {
@@ -83,9 +82,13 @@ describe("Testing the DockingStation class.", () => {
         expect(hydePark.faultyScooters.length).toBe(1);
     });
 
-    /*test("Testing that the chargeScooter method waits 2 seconds before running its code block", () => {
-        expect(setTimeout).toHaveBeenLastCalledWith(expect.hydePark.chargeScooter(hp1), 2000);
-    });*/
+    test("Testing that the chargeScooter method completes", done => {
+        function callback (str) {
+            expect(str).toBe("done.");
+            done();
+        };
+        hydePark.chargeScooter(hp1,callback);
+    });
 
     /*afterAll(() => {
         jest.useRealTimers();

@@ -13,13 +13,13 @@ class DockingStation {
         this.faultyScooters.push(scooter);
     };
 
-    chargeScooter(scooter) {
+    chargeScooter(scooter, callback) {
         let tempVar = this
         setTimeout( () => {
             scooter.chargeLevel = 100;
-            scooter.range = 32;
             tempVar.availableScooters.push(scooter);
             console.log("Scooter Charged");
+            return callback("done.");
         }, 2000)
     };
 

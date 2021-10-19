@@ -15,6 +15,14 @@ let hp3 = new Scooter ("HP3", 74);
 
 let hydePark = new DockingStation("Hyde Park", [hp1]);
 
+console.log(hp2.range);
+
+hydePark.chargeScooter(hp2, () => {});
+
+setTimeout(() => {
+    console.log(hp2.range);
+}, 3000);
+
 
 
 
