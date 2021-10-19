@@ -1,9 +1,9 @@
 class DockingStation {
     static dockingStations = [];
 
-    constructor(name) {
+    constructor(name, availableScooters) {
         this.name = name;
-        this.availableScooters = [];
+        this.availableScooters = availableScooters;
         this.faultyScooters = [];
         this.constructor.dockingStations.push(this.name);
     };

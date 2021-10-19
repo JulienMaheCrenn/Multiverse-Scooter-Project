@@ -13,13 +13,11 @@ let hp3 = new Scooter ("HP3", 74);
 
 //Defining the hydepark instance of DockingStation.
 
-let hydePark = new DockingStation("Hyde Park");
-
-//Adding hp1 to hydePark instance.
+let hydePark = new DockingStation("Hyde Park", [hp1]);
 
 
 
-Maintenance.sendRepair(hydePark);
+
 
 
 
