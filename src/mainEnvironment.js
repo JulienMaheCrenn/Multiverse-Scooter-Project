@@ -3,6 +3,7 @@
 const {DockingStation} = require("./dockingstation.js");
 const {Scooter} = require("./scooter.js");
 const {User} = require("./user.js");
+const {Maintenance} = require("./maintenance.js");
 
 //Defining a few scooter instances.
 
@@ -16,14 +17,9 @@ let hydePark = new DockingStation("Hyde Park");
 
 //Adding hp1 to hydePark instance.
 
-hydePark.availableScooters.push(hp1);
-
-console.log(hydePark.availableScooters);
 
 
-hydePark.undockScooter(hp1);
-
-console.log(hydePark.availableScooters);
+Maintenance.sendRepair(hydePark);
 
 
 
