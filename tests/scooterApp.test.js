@@ -28,7 +28,7 @@ describe("Testing the User class.", () => {
         expect(bob.checkAge()).toBe("Welcome to our electric scooter renting app.");
     });
 
-    test("Testing that bob passes the age test.", () => {
+    test("Testing that bob fails the age test.", () => {
         bob.age = 17;
         expect(bob.checkAge()).toBe("This service is only availabe to users over the age of 18.");
     });
