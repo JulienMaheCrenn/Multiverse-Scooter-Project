@@ -1,9 +1,9 @@
 class Maintenance {
     static sendRepair(dockingStation) {
         if (dockingStation.faultyScooters.length > 0) {
-            console.log("A repairman is on their way.");
+            return("A repairman is on their way.")
         }else {
-            console.log("No maintenance necessary.");
+            return("No maintenance necessary.");
         };
     };
 };

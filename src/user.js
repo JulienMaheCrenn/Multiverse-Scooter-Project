@@ -6,9 +6,9 @@ class User {
 
     checkAge() {
         if (this.age >= 18) {
-            console.log("Welcome to our electric scooter renting app.");
+            return("Welcome to our electric scooter renting app.");
         }else {
-            console.log("This service is only availabel to users over the age of 18.")
+            return("This service is only availabe to users over the age of 18.")
         };
     };
 };
