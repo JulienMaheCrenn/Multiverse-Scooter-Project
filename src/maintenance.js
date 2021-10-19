@@ -7,9 +7,6 @@ class Maintenance {
             return("No maintenance necessary.");
         };
     };
-
-    static repairScooter(scooter) {
-    };
 };
 
 module.exports = {Maintenance};
