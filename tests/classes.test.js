@@ -47,4 +47,28 @@ describe("Testing the Scooter class.", () => {
 
 //Creating tests for the DockingStation class.
 
+describe("Testing the DockingStation class", () => {
 
+    beforeAll(() => {
+        jest.useFakeTimers();
+        hp1 = new Scooter("HP1", 45);
+        hydePark = new DockingStation ("Hyde Park", []);
+        hydePark.chargeScooter(hp1);
+    });
+
+    test("Testing that hydePark is an instance of DockingStation", () => {
+        expect(hydePark).toBeInstanceOf(DockingStation);
+    });
+
+    test("Testing that the creation of hydepark is pushed into DockingStation's static array", () => {
+        expect(DockingStation.dockingStations.length).toBeGreaterThan(0);
+    });
+
+    test("Testing that the chargeScooter method waits 2 seconds before running its code block", () => {
+        expect(setTimeout).toHaveBeenLastCalledWith(expect.hydePark.chargeScooter(hp1), 2000);
+    });
+
+    afterAll(() => {
+        jest.useRealTimers();
+    });
+});
