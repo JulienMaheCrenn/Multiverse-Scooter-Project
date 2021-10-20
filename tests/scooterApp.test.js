@@ -90,9 +90,6 @@ describe("Testing the DockingStation class.", () => {
         hydePark.chargeScooter(hp1,callback);
     });
 
-    /*afterAll(() => {
-        jest.useRealTimers();
-    });*/
 });
 
 //Testing the Maintenance class.
@@ -109,9 +106,13 @@ describe("Testing the Maintenance Class.", () => {
         hydePark = new DockingStation("Hyde Park", [hp1]);
     });
 
-    test("Testing that the sendRepair method detects when there're faulty scooters at a docking station.", () => {
+    test("Testing that the sendRepair method completes when there're faulty scooters in the array.", done => {
         hydePark.markAsFaulty(hp1);
-        expect(Maintenance.sendRepair(hydePark)).toBe("A repairman is on their way.");
+        function callback (str) {
+            expect(str).toBe("Done.");
+            done();
+        };
+        Maintenance.sendRepair(hydePark, callback);
     });
 
     test("Testing that the sendRepair method detects when there're no faulty scooters at a docking station.", () => {

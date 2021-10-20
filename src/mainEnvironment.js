@@ -13,15 +13,21 @@ let hp3 = new Scooter ("HP3", 74);
 
 //Defining the hydepark instance of DockingStation.
 
-let hydePark = new DockingStation("Hyde Park", [hp1]);
+let hydePark = new DockingStation("Hyde Park", [hp1,hp2]);
 
-console.log(hp2.range);
+hydePark.markAsFaulty(hp1);
+hydePark.markAsFaulty(hp2);
 
-hydePark.chargeScooter(hp2, () => {});
+console.log(hydePark.availableScooters);
+console.log(hydePark.faultyScooters);
+
+Maintenance.sendRepair(hydePark, () => {});
 
 setTimeout(() => {
-    console.log(hp2.range);
-}, 3000);
+    console.log(hydePark.availableScooters);
+    console.log(hydePark.faultyScooters);
+}, 5000);
+
 
 
 
