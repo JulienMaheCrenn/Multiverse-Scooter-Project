@@ -8,6 +8,23 @@ let hydePark = undefined;
 let hp1 = undefined;
 let bob = undefined;
 
+
+/*
+jest.useFakeTimers() and jest.useRealTimers() are global toggles:
+they will affect other tests in the same file! If you don't want
+to use fake timers in all your tests, you will need to clean up
+manually like this: 
+*/
+
+afterEach(() => {
+    jest.useRealTimers();
+});
+
+/* 
+Note that the internal counters in useFakeTimers() will also persist
+between tests. Reset these with jest.useFakeTimers.()
+*/
+
 //Creating tests for the User class.
 
 describe("Testing the User class.", () => {
@@ -83,11 +100,13 @@ describe("Testing the DockingStation class.", () => {
     });
 
     test("Testing that the chargeScooter method completes", done => {
+        jest.useFakeTimers();
         function callback (str) {
             expect(str).toBe("done.");
             done();
         };
         hydePark.chargeScooter(hp1,callback);
+        jest.runAllTimers(); // progress timers after callback otherwise they won't run!
     });
 
 });
@@ -107,6 +126,7 @@ describe("Testing the Maintenance Class.", () => {
     });
 
     test("Testing that the sendRepair method completes when there're faulty scooters in the array.", done => {
+        /* How would we add fake timers to this test? */
         hydePark.markAsFaulty(hp1);
         function callback (str) {
             expect(str).toBe("Done.");
