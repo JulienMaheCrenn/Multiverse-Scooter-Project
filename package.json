@@ -1,0 +1,22 @@
+{
+  "name": "multiverse-scooter-project",
+  "version": "1.0.0",
+  "description": "Code for the multiverse bootcamp scooter project.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulienMaheCrenn/Multiverse-Scooter-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JulienMaheCrenn/Multiverse-Scooter-Project/issues"
+  },
+  "homepage": "https://github.com/JulienMaheCrenn/Multiverse-Scooter-Project#readme"
+}
