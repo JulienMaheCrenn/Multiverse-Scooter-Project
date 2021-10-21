@@ -60,7 +60,6 @@ describe("Testing the DockingStation class.", () => {
     beforeAll(() => {
         hp1 = new Scooter("HP1", 45);
         hydePark = new DockingStation ("Hyde Park", [hp1]);
-      
     });
 
     afterEach(() => {
