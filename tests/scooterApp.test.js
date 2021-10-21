@@ -8,23 +8,6 @@ let hydePark = undefined;
 let hp1 = undefined;
 let bob = undefined;
 
-
-/*
-jest.useFakeTimers() and jest.useRealTimers() are global toggles:
-they will affect other tests in the same file! If you don't want
-to use fake timers in all your tests, you will need to clean up
-manually like this: 
-*/
-
-afterEach(() => {
-    jest.useRealTimers();
-});
-
-/* 
-Note that the internal counters in useFakeTimers() will also persist
-between tests. Reset these with jest.useFakeTimers.()
-*/
-
 //Creating tests for the User class.
 
 describe("Testing the User class.", () => {
@@ -80,6 +63,11 @@ describe("Testing the DockingStation class.", () => {
       
     });
 
+    afterEach(() => {
+        jest.useRealTimers();
+    });
+    
+
     test("Testing that hydePark is an instance of DockingStation.", () => {
         expect(hydePark).toBeInstanceOf(DockingStation);
     });
@@ -106,7 +94,7 @@ describe("Testing the DockingStation class.", () => {
             done();
         };
         hydePark.chargeScooter(hp1,callback);
-        jest.runAllTimers(); // progress timers after callback otherwise they won't run!
+        jest.runAllTimers();
     });
 
 });
@@ -123,16 +111,18 @@ describe("Testing the Maintenance Class.", () => {
     afterEach(() => {
         hp1 = new Scooter("HP1",100);
         hydePark = new DockingStation("Hyde Park", [hp1]);
+        jest.useRealTimers();
     });
 
     test("Testing that the sendRepair method completes when there're faulty scooters in the array.", done => {
-        /* How would we add fake timers to this test? */
+        jest.useFakeTimers();
         hydePark.markAsFaulty(hp1);
         function callback (str) {
             expect(str).toBe("Done.");
             done();
         };
         Maintenance.sendRepair(hydePark, callback);
+        jest.runAllTimers();
     });
 
     test("Testing that the sendRepair method detects when there're no faulty scooters at a docking station.", () => {
